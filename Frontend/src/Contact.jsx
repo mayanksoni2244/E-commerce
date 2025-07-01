@@ -27,56 +27,58 @@ const Contact = () => {
                                 <div className="relative">
                                     <input
                                         type="text"
-                                        required
                                         id="name"
                                         name="name"
+                                        required
+                                        className="peer w-full border-b-2 border-gray-300 py-3 text-gray-900 bg-transparent focus:outline-none focus:border-blue-500"
                                         placeholder=" "
-                                        className="peer w-full border-b-2 border-gray-300 focus:border-indigo-500 outline-none py-2"
                                     />
                                     <label
                                         htmlFor="name"
-                                        className="absolute left-0 top-2 text-gray-500 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm transition-all"
+                                        className="absolute left-0 top-3 text-gray-500 transition-all duration-200 peer-focus:-top-4 peer-focus:text-sm peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-sm"
                                     >
                                         Your Name
                                     </label>
                                 </div>
+
 
                                 {/* Email */}
                                 <div className="relative">
                                     <input
                                         type="email"
                                         id="email"
-                                        required
                                         name="email"
+                                        required
+                                        className="peer w-full border-b-2 border-gray-300 py-3 text-gray-900 bg-transparent focus:outline-none focus:border-blue-500"
                                         placeholder=" "
-                                        className="peer w-full border-b-2 border-gray-300 focus:border-indigo-500 outline-none py-2"
                                     />
                                     <label
                                         htmlFor="email"
-                                        className="absolute left-0 top-2 text-gray-500 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm transition-all"
+                                        className="absolute left-0 top-3 text-gray-500 transition-all duration-200 peer-focus:-top-4 peer-focus:text-sm peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-sm"
                                     >
                                         Your Email
                                     </label>
                                 </div>
 
+
                                 {/* Message */}
                                 <div className="relative">
                                     <textarea
                                         id="message"
-                                        required
                                         name="message"
                                         rows="4"
+                                        required
+                                        className="peer w-full border-b-2 border-gray-300 py-3 text-gray-900 bg-transparent focus:outline-none focus:border-blue-500 resize-none"
                                         placeholder=" "
-                                        className="peer w-full border-b-2 border-gray-300 focus:border-indigo-500 outline-none py-2 resize-none"
-                                    />
+                                    ></textarea>
                                     <label
                                         htmlFor="message"
-                                        aria-required="true"
-                                        className="absolute left-0 top-2 text-gray-500 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm transition-all"
+                                        className="absolute left-0 top-3 text-gray-500 transition-all duration-200 peer-focus:-top-4 peer-focus:text-sm peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-sm "
                                     >
                                         Your Message
                                     </label>
                                 </div>
+
 
                                 <button
                                     type="submit"

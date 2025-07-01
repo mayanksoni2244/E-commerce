@@ -3,6 +3,8 @@ import cors from 'cors';
 import bcrypt from 'bcrypt'
 import User from "../server.js";
 
+
+
 const server=e();
 server.use(e.json())
 server.use(e.urlencoded({extended:true}))
@@ -14,6 +16,8 @@ server.post("/Reg",async(req,res)=>{
     try{
         const {username,email,password,createdate}=req.body;
         const exist=await User.findOne({email})
+        console.log('exist',exist);
+        
         if(exist){
            return res.status(400).json({message:'Email already exist',success:false})
         }

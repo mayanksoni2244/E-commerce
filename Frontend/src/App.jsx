@@ -11,9 +11,10 @@ import Footer from './Footer'
 import Register from './register'
 import Faq from './Faq'
 import Profile from './profile'
-import Checkout from './Checkout'
+import Checkout from './checkout'
 import Contact from './Contact'
 import Protect from './protectedroute/protect'
+import AboutUs from './AboutUs'
 
 
 
@@ -30,6 +31,7 @@ const Appwraper = () => {
         <Route path='/Cart' element={<Cart />} />
         <Route path='/faq' element={<Faq />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/aboutUs' element={<AboutUs />} />
         <Route path='/contact' element={
           <Protect>
             <Contact />

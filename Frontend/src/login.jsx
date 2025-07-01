@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UseAuth } from "./contest/AuthContest.jsx";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,88 +21,91 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const u=localStorage.getItem("name");
   
+
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       await axios.post("http://localhost:3000/api/auth/login", formData);
-      alert("Logged in Successfully");
+      toast.success("Logged in Successfully");
       login(formData);
       navigate("/home");
     } catch (err) {
       console.log(err);
-      alert("Invalid credentials, please try again");
+      toast.error("Invalid credentials, please try again");
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-sm bg-white rounded-2xl shadow-md border border-gray-200 p-8 space-y-6"
-      >
-        <h2 className="text-2xl font-bold text-center text-gray-800">
-          Login
-        </h2>
-
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Username</label>
-          <input
-            type="text"
-            name="username"
-            className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
-            value={formData.username}
-            onChange={handleChange}
-            required
-            placeholder="username"
-          />
-        </div>
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            name="email"
-            className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            placeholder="you@example.com"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            placeholder="••••••••"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full py-3 rounded-lg bg-blue-400 hover:bg-blue-500 cursor-pointer text-white font-semibold text-base"
+    <>
+      <ToastContainer position='top-right' autoClose={3000} />
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-sm bg-white rounded-2xl shadow-md border border-gray-200 p-8 space-y-6"
         >
-          Login
-        </button>
+          <h2 className="text-2xl font-bold text-center text-gray-800">
+            Login
+          </h2>
 
-        <p className="text-center text-gray-600 mt-2">
-          Don't have an account?{" "}
-          <Link
-            to="/"
-            className="font-semibold underline text-blue-600"
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              placeholder="username"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              placeholder="••••••••"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3 rounded-lg bg-blue-400 hover:bg-blue-500 cursor-pointer text-white font-semibold text-base"
           >
-            Sign Up
-          </Link>
-        </p>
-      </form>
-    </div>
+            Login
+          </button>
+
+          <p className="text-center text-gray-600 mt-2">
+            Don't have an account?{" "}
+            <Link
+              to="/"
+              className="font-semibold underline text-blue-600"
+            >
+              Sign Up
+            </Link>
+          </p>
+        </form>
+      </div>
+    </>
   );
 };
 

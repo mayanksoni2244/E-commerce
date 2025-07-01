@@ -2,12 +2,14 @@ import express from "express";
 import mongoose, { Schema } from "mongoose";
 import server from './routes/authroutes.js';
 import cors from 'cors';
-
+import router from './routes/orderRouter.js'
 
 const app = express();
 app.use(express.json());
 app.use('/api/auth',server)
 app.use(cors())
+app.use('/api', router);
+
 
  
 mongoose.connect('mongodb+srv://ms9218764:mayank123@cluster0.fivajcs.mongodb.net/')

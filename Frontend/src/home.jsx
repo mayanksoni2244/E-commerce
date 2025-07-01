@@ -29,7 +29,7 @@ const Home = () => {
     []);
   return (
     <>
-      <div className="bg-gray-100 min-h-screen pb-10">
+      <div className="bg-zinc-300 min-h-screen pb-10">
         {/* Carousel */}
         <Carousel />
 
