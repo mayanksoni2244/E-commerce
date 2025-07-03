@@ -27,7 +27,7 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/auth/login", formData);
+      await axios.post("https://fabrico-backend-one.vercel.app/api/auth/login", formData,{withCredentials:true});
       toast.success("Logged in Successfully");
       login(formData);
       navigate("/home");
