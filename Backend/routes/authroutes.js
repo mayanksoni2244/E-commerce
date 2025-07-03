@@ -1,7 +1,7 @@
 import e from "express";
 import cors from 'cors';
 import bcrypt from 'bcrypt'
-import User from "../index.js";
+import User from "../server.js";
 
 
 
