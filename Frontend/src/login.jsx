@@ -20,14 +20,14 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
+  };    
   
 
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/auth/login", formData);
+      await axios.post("https://fabrico-o87m.onrender.com", formData);
       toast.success("Logged in Successfully");
       login(formData);
       navigate("/home");
