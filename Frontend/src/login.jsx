@@ -27,7 +27,7 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("https://fabbackend.onrender.com", formData);
+      await axios.post("http://localhost:3000/api/auth/login", formData);
       toast.success("Logged in Successfully");
       login(formData);
       navigate("/home");
