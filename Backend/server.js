@@ -3,6 +3,8 @@ import mongoose, { Schema } from "mongoose";
 import server from './routes/authroutes.js';
 import cors from 'cors';
 import router from './routes/orderRouter.js'
+import dotenv from 'dotenv';
+dotenv.config()
 
 const app = express();
 app.use(express.json());
@@ -11,9 +13,8 @@ app.use(cors())
 app.use('/api', router);
 
 
-
- 
-mongoose.connect('mongodb+srv://ms9218764:mayank123@cluster0.fivajcs.mongodb.net/')
+const port =process.env.PORT || 3000;
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
     console.log('connected to database')
 })
@@ -46,6 +47,6 @@ export default User;
 
 
 
-app.listen(3000,()=>{
-    console.log('server is running on port 3000')
+app.listen(port,()=>{
+    console.log(`server is running on port ${port}`)
 })
