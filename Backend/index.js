@@ -3,6 +3,8 @@ import mongoose, { Schema } from "mongoose";
 import server from './routes/authroutes.js';
 import cors from 'cors';
 import router from './routes/orderRouter.js'
+import path from "path";
+import { fileURLToPath } from "url";
 import dotenv from 'dotenv';
 dotenv.config()
 
@@ -48,7 +50,13 @@ const userSchema=new mongoose.Schema({
 const User=mongoose.model('User',userSchema)
 export default User;
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+app.use(express.static(path.join(__dirname, "dist"))); // ya build
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 app.listen(port,()=>{
     console.log(`server is running on port ${port}`)

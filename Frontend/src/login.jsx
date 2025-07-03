@@ -10,7 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { login } = UseAuth();
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -20,17 +19,15 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };    
-  
-
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response= await axios.post("https://fabrico-back.onrender.com/api/auth/login", formData,{withCredentials:true});
+      const response = await axios.post("https://fabrico-back.onrender.com/api/auth/login", formData, { withCredentials: true });
       toast.success("Logged in Successfully");
       login(response.data.user);
-      
+
       navigate("/home");
     } catch (err) {
       console.log(err);
@@ -50,18 +47,6 @@ const Login = () => {
             Login
           </h2>
 
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">Username</label>
-            <input
-              type="text"
-              name="username"
-              className="w-full p-3 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300 outline-none transition placeholder-gray-500"
-              value={formData.username}
-              onChange={handleChange}
-              required
-              placeholder="username"
-            />
-          </div>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
