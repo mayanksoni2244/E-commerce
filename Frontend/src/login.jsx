@@ -20,7 +20,7 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
+  };    
   
 
 
