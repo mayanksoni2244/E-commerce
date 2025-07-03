@@ -24,7 +24,7 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("https://fabrico-back.onrender.com/api/auth/login", formData, { withCredentials: true });
+      const response = await axios.post("https://fab-b.onrender.com/api/auth/login", formData, { withCredentials: true });
       toast.success("Logged in Successfully");
       login(response.data.user);
 
