@@ -23,7 +23,7 @@ const Register = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res=await axios.post("http://localhost:3000/api/auth/Reg", formData);
+      const res=await axios.post("https://fabrico-o87m.onrender.com", formData);
       toast.success("Registered Successfully, Now you can login");
       localStorage.setItem("date", formData.createdate);
       navigate("/login");
