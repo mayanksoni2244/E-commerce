@@ -49,7 +49,7 @@ server.post('/login',async(req,res)=>{
     if(!isMatch){
         return res.status(400).json({message:'Invalid password',success:false})
     }
-    return res.status(200).json({message:'logged in succesfully',success:true,user:{user:user.username,email:user.email}})
+    return res.status(200).json({message:'logged in succesfully',success:true,user:{username:user.username,email:user.email}})
    }
    catch(err){
     console.log('error in login')
